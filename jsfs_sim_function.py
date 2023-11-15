@@ -2,6 +2,7 @@
 ####### now including recombination (n RAD-like loci, assumed to be unlinked) ##############
 ####### requires: msprime, numpy ################
 ####### note: "n_albatross" and "n_contemporary" refer to historic and contemporary sample sizes, respectively ########
+####### demography debugger and ts.draw are for validating that the function is doing what we intend it to do - these can safely be removed ####### 
 
 
 def jsfs_sim(n_contemp=2,n_albatross=2,n_loci=1000,t_historic_samp=110,gentime=3,mu=0.00001,ne_ancestral=1000,r_modern=-0.1,t_recent_change=80,t_ancestral_change=15000,r_ancestral=0):
