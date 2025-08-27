@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH --nodes 1
+#SBATCH --ntasks-per-node 10
+#SBATCH --partition p_deenr_1
+#SBATCH --time 24:00:00
+#SBATCH --mem-per-cpu 4000
+#SBATCH --job-name PTAsim_npops7_nhap1244_muhi_sigmalo_nedec_ipp
+#SBATCH --output PTAsim_npops7_nhap1244_muhi_sigmalo_nedec_ipp.txt
+
+source ~/anaconda3/etc/profile.d/conda.sh
+
+conda activate pta0020
+
+ipcluster stop --cluster-id=PTA-nhap1244_muhi_sigmalo_pta0020
+
+sleep 20
+
+ipcluster start --n=10 --cluster-id=PTA-nhap1244_muhi_sigmalo_pta0020 --daemonize
+
+sleep 120
+
+cd /scratch/br450/ptaPIRE_sims_gentime_1244_nedec_pta0020
+
+python3 /scratch/br450/ptaPIRE_sims_gentime_1244_nedec_pta0020/PTAsim_npops7_nhap1244_muhi_sigmalo_ipp.py
+
+ipcluster stop --cluster-id=PTA-nhap1244_muhi_sigmalo_pta0020

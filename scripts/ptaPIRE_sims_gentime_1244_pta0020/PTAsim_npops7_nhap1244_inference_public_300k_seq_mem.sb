@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --nodes 1
+#SBATCH --ntasks-per-node 30
+#SBATCH --mem-per-cpu 15000
+#SBATCH --partition mem
+#SBATCH --time 24:00:00
+#SBATCH --job-name PTAsim_npops7_nhap1244_inference_public_300k_seq_mem_%j
+#SBATCH --output PTAsim_npops7_nhap1244_inference_public_300k_seq_mem_%j.txt
+
+source ~/anaconda3/etc/profile.d/conda.sh
+
+conda activate pta0020
+
+python3 /scratch/br450/ptaPIRE_sims_gentime_1244_pta0020/PTAsim_npops7_nhap1244_inference_public_300k_seq_mem.py
+
